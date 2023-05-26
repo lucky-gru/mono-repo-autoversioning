@@ -1,5 +1,5 @@
 {
-  "name": "remixapp",
+  "name": "@lucky-gru/remixapp",
   "version": "0.0.0",
   "private": true,
   "sideEffects": false,
