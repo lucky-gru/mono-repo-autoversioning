@@ -5,6 +5,7 @@ export function Footer() {
         <footer>
             Footer
             <div>updated footer</div>
+            <div>updated footer 1</div>
         </footer>
     );
 }
