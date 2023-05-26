@@ -9,6 +9,7 @@ export function Footer() {
             <div>updated footer 1</div>
             <div>updated footer 1</div>
             <div>updated footer 1</div>
+            <div>updated footer 1</div>
         </footer>
     );
 }
