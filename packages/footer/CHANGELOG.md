@@ -1,5 +1,11 @@
 # @lucky-gru/footer
 
+## 2.0.1
+
+### Patch Changes
+
+- [`217a527`](https://github.com/lucky-gru/mono-repo-autoversioning/commit/217a527dc9765ac700b6848f59383297f5b991b6) Thanks [@lucky-gru](https://github.com/lucky-gru)! - asdfs fsafsdfsa
+
 ## 2.0.0
 
 ### Major Changes
