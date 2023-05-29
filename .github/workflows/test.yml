@@ -21,7 +21,7 @@ jobs:
         uses: indiesdev/curl@v1.1
         id: api
         with:
-          url: http://127.0.0.1:8104/
+          url: https://github.com
           log-response: true
 
       # - name: curl
