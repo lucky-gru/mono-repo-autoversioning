@@ -1,0 +1,24 @@
+name: Playwright Tests
+on:
+  # pull_request:
+  #   branches: [feat/playwrite-workflow]
+  #   types: [closed]
+  push:
+    branches:
+      - feat/playwrite-workflow
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      - uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./.github/docker-compose.yml"
+
+      - name: curl
+        uses: wei/curl@master
+        with:
+          args: "http://localhost:8104"
+
