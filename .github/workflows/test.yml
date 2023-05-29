@@ -40,4 +40,4 @@ jobs:
       - name: curl
         uses: wei/curl@master
         with:
-          args: "http://localhost:5432"
+          args: "http://postgres:5432"
