@@ -17,8 +17,15 @@ jobs:
         with:
           compose-file: "./.github/docker-compose.yml"
 
-      - name: curl
-        uses: wei/curl@master
+      - name: "Call API 1"
+        uses: indiesdev/curl@v1.1
+        id: api
         with:
-          args: "http://localhost:8104"
+          url: http://localhost:8104/
+          log-response: true
+          
+      # - name: curl
+      #   uses: wei/curl@master
+      #   with:
+      #     args: "http://localhost:8104"
 
