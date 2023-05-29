@@ -21,9 +21,9 @@ jobs:
         uses: indiesdev/curl@v1.1
         id: api
         with:
-          url: http://localhost:8104/
+          url: http://127.0.0.1:8104/
           log-response: true
-          
+
       # - name: curl
       #   uses: wei/curl@master
       #   with:
