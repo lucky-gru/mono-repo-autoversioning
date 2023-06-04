@@ -1,5 +1,11 @@
 # @lucky-gru/footer
 
+## 4.0.0
+
+### Major Changes
+
+- [#6](https://github.com/lucky-gru/mono-repo-autoversioning/pull/6) [`2ccc380`](https://github.com/lucky-gru/mono-repo-autoversioning/commit/2ccc380045f6bfe066323f658f59bf6725860bc6) Thanks [@lucky-gru](https://github.com/lucky-gru)! - update
+
 ## 3.0.0
 
 ### Major Changes
