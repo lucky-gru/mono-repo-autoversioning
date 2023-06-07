@@ -4,7 +4,7 @@ const { Client } = require("pg");
 
 const pgclient = new Client({
   host: "postgres-sso",
-  port: 5435,
+  port: 5432,
   user: "postgres",
   password: "example",
   database: "keycloak_db",
