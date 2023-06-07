@@ -2,24 +2,56 @@ name: PostgreSQL Service Example
 on: push
 
 jobs:
-  # Label of the runner job
   runner-job:
-    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
-
-    # Service containers to run with `runner-job`
     services:
-      # Label used to access the service container
       postgres:
+        image: postgres:14.5
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: example
+          POSTGRES_DB: eil
+        ports:
+          - 5432:5432
+
+      postgres-sso:
         image: postgres:14.5
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: example
           POSTGRES_DB: keycloak_db
         volumes:
-          - packages/keycloak-db.sql:/docker-entrypoint-initdb.d/keycloak-db.sql
+          - keycloak-db.sql:/docker-entrypoint-initdb.d/keycloak-db.sql
         ports:
-          - 5432:5432
+          - 5435:5432
+
+      keycloak:
+        image: quay.io/keycloak/keycloak:latest
+        env:
+          KC_DB: postgres
+          KC_DB_USERNAME: postgres
+          KC_DB_PASSWORD: example
+          KC_DB_SCHEMA: public
+          KC_DB_URL_DATABASE: keycloak_db
+          KC_DB_URL_HOST: postgres-sso
+          KEYCLOAK_ADMIN: admin
+          KEYCLOAK_ADMIN_PASSWORD: admin
+        ports:
+          - 8080:8080
+
+      cpg-server:
+        image: etenlab/cpg-server:latest
+        env:
+          DB_HOST: postgres
+          DB_PORT: 5432
+          DB_USERNAME: postgres
+          DB_PASSWORD: example
+          DB_NAME: eil
+          RUN_MIGRATIONS: false
+          MODE: DEV
+          PORT: 80
+        ports:
+          - 8201:80
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
@@ -42,3 +74,6 @@ jobs:
           POSTGRES_HOST: localhost
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
+          POSTGRES_SSO_POST: 5435
+          KEYCLOAK_PORT: 8080
+          CPG_SERVER: 8201

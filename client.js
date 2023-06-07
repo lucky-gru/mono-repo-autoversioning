@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 const { Client } = require("pg");
 
 const pgclient = new Client({
@@ -9,6 +11,38 @@ const pgclient = new Client({
 });
 
 pgclient.connect();
+
+(async () => {
+  axios
+    .get("http://localhost:8080")
+    .then(function (response) {
+      // handle success
+      console.log("8080", response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+})();
+
+(async () => {
+  axios
+    .get("http://localhost:8201")
+    .then(function (response) {
+      // handle success
+      console.log("8201", response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+})();
 
 const table =
   "CREATE TABLE student(id SERIAL PRIMARY KEY, firstName VARCHAR(40) NOT NULL, lastName VARCHAR(40) NOT NULL, age INT, address VARCHAR(80), email VARCHAR(40))";
