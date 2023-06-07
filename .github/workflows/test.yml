@@ -17,9 +17,9 @@ jobs:
           POSTGRES_PASSWORD: example
           POSTGRES_DB: keycloak_db
         volumes:
-          - keycloak-db.sql:/docker-entrypoint-initdb.d/keycloak-db.sql
+          - packages/keycloak-db.sql:/docker-entrypoint-initdb.d/keycloak-db.sql
         ports:
-          - 5435:5432
+          - 5432:5432
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
