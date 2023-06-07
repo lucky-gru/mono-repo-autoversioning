@@ -7,7 +7,7 @@ const pgclient = new Client({
   port: process.env.POSTGRES_PORT,
   user: "postgres",
   password: "example",
-  database: "keycloak_db",
+  database: "eil",
 });
 
 pgclient.connect();
