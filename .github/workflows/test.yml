@@ -4,6 +4,9 @@ on: push
 jobs:
   runner-job:
     runs-on: ubuntu-latest
+
+    container: node:16-bullseye
+
     services:
       postgres:
         image: postgres:14.5
