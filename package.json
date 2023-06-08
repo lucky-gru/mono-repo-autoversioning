@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
+    "start": "node client.js",
     "lerna": "lerna",
     "build": "lerna run build",
     "prepublish": "lerna run prepublish",
