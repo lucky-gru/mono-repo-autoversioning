@@ -40,9 +40,6 @@ jobs:
       # For more information, see https://docs.npmjs.com/cli/ci.html
 
       # - name: Test Keycloak service
-      #   run: curl http://127.0.0.1:8080/auth
-
-      # - name: Test Keycloak service
       #   run: curl http://localhost:8080/auth
 
       - name: Install dependencies
@@ -62,3 +59,6 @@ jobs:
           POSTGRES_SSO_POST: 5435
           KEYCLOAK_PORT: 8080
           CPG_SERVER: 8201
+
+      - name: Test Keycloak service
+        run: curl http://127.0.0.1:8080
