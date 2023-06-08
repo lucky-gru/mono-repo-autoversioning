@@ -65,4 +65,4 @@ jobs:
       - name: A
         run: sudo netstat -tulpn
       - name: B
-        run: curl -v http://localhost:8080/
+        run: curl -v http://0.0.0.0:8080/
