@@ -2,19 +2,9 @@ const axios = require("axios");
 
 const { Client } = require("pg");
 
-const pgclient = new Client({
-  host: "localhost",
-  port: 5432,
-  user: "postgres",
-  password: "example",
-  database: "keycloak_db",
-});
-
-pgclient.connect();
-
 (async () => {
   axios
-    .get("http://localhost:8080")
+    .get("http://localhost:8080/auth")
     .then(function (response) {
       // handle success
       console.log("8080", response);
@@ -30,7 +20,7 @@ pgclient.connect();
 
 (async () => {
   axios
-    .get("https://localhost:8080")
+    .get("https://localhost:8080/auth")
     .then(function (response) {
       // handle success
       console.log("8080s", response);
@@ -43,6 +33,16 @@ pgclient.connect();
       // always executed
     });
 })();
+
+const pgclient = new Client({
+  host: "localhost",
+  port: 5432,
+  user: "postgres",
+  password: "example",
+  database: "keycloak_db",
+});
+
+pgclient.connect();
 
 const table =
   "CREATE TABLE student(id SERIAL PRIMARY KEY, firstName VARCHAR(40) NOT NULL, lastName VARCHAR(40) NOT NULL, age INT, address VARCHAR(80), email VARCHAR(40))";
