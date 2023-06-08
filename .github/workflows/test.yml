@@ -31,7 +31,7 @@ jobs:
         # volumes:
         #   - keycloak-db.sql:/docker-entrypoint-initdb.d/keycloak-db.sql
         options: >-
-          --entrypoint /opt/keycloak/bin/ -c kc.sh start-dev
+          --entrypoint "/opt/keycloak/bin/kc.sh"
         ports:
           - 127.0.0.1:8080:8080
 
