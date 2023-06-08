@@ -13,6 +13,9 @@ jobs:
         with:
           compose-file: "./docker/docker-compose.yml"
           down-flags: "--volumes"
+          services: |
+            postgres-sso
+            keycloak
 
       - name: Install dependencies
         run: npm ci
