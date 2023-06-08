@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build and run application
-        run: docker build -t keycloak-test. && docker run -p 8080:8080 keycloak-test
+        run: docker build -t "keycloak-test" . && docker run -p 8080:8080 keycloak-test
 
       - name: Test Keycloak service
         run: curl http://localhost:8080/auth
