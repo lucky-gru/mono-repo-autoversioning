@@ -1,20 +1,19 @@
-# name: Release
-# on:
-#   push:
-#     branches:
-#       - main
-# jobs:
-#   release:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       actions: write
-#       contents: write
-#       pull-requests: write
-#     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#           fetch-depth: 0
-
+name: Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 #       - name: Use Node.js 12.x
 #         uses: actions/setup-node@v1
 #         with:
