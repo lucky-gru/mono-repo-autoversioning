@@ -46,7 +46,7 @@ services:
       DB_USERNAME: postgres
       DB_PASSWORD: example
       DB_NAME: eil
-      RUN_MIGRATIONS: false
+      RUN_MIGRATIONS: "false"
       MODE: DEV
       PORT: 80
     ports:
