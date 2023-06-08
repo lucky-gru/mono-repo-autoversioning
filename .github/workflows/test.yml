@@ -30,7 +30,8 @@ jobs:
           KEYCLOAK_ADMIN_PASSWORD: admin
         ports:
           - 127.0.0.1:8080:8080
-        options: start-dev
+        command:
+          - start-dev
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
