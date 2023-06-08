@@ -31,7 +31,7 @@ jobs:
 
         options: >-
           --entrypoint ["/opt/keycloak/bin/kc.sh"]
-          --cmd start-dev
+          start-dev
         ports:
           - 127.0.0.1:8080:8080
 
