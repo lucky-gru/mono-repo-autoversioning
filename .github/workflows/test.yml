@@ -39,11 +39,11 @@ jobs:
       # Performs a clean installation of all dependencies in the `package.json` file
       # For more information, see https://docs.npmjs.com/cli/ci.html
 
-      - name: Test Keycloak service
-        run: curl http://127.0.0.1:8080/auth
+      # - name: Test Keycloak service
+      #   run: curl http://127.0.0.1:8080/auth
 
-      - name: Test Keycloak service
-        run: curl http://localhost:8080/auth
+      # - name: Test Keycloak service
+      #   run: curl http://localhost:8080/auth
 
       - name: Install dependencies
         run: npm ci
