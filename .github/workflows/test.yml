@@ -31,7 +31,7 @@ jobs:
       keycloak:
         image: quay.io/keycloak/keycloak:latest
         env:
-          KC_DB: keycloak_db
+          KC_DB: postgres
           KC_DB_USERNAME: postgres
           KC_DB_PASSWORD: example
           KC_DB_SCHEMA: public
