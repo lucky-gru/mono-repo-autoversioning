@@ -42,23 +42,27 @@ jobs:
       # - name: Test Keycloak service
       #   run: curl http://localhost:8080/auth
 
-      - name: Install dependencies
-        run: npm ci
+      # - name: Install dependencies
+      #   run: npm ci
 
-      - name: Connect to PostgreSQL
-        # Runs a script that creates a PostgreSQL table, populates
-        # the table with data, and then retrieves the data
-        run: node client.js
-        # Environment variables used by the `client.js` script to create
-        # a new PostgreSQL table.
-        env:
-          # The hostname used to communicate with the PostgreSQL service container
-          POSTGRES_HOST: localhost
-          # The default PostgreSQL port
-          POSTGRES_PORT: 5432
-          POSTGRES_SSO_POST: 5435
-          KEYCLOAK_PORT: 8080
-          CPG_SERVER: 8201
+      # - name: Connect to PostgreSQL
+      #   # Runs a script that creates a PostgreSQL table, populates
+      #   # the table with data, and then retrieves the data
+      #   run: node client.js
+      #   # Environment variables used by the `client.js` script to create
+      #   # a new PostgreSQL table.
+      #   env:
+      #     # The hostname used to communicate with the PostgreSQL service container
+      #     POSTGRES_HOST: localhost
+      #     # The default PostgreSQL port
+      #     POSTGRES_PORT: 5432
+      #     POSTGRES_SSO_POST: 5435
+      #     KEYCLOAK_PORT: 8080
+      #     CPG_SERVER: 8201
 
       - name: Test Keycloak service
-        run: curl http://127.0.0.1:8080
+        run: netstat -ln | grep 8080
+      - name: A
+        run: sudo netstat -tulpn
+      - name: B
+        run: curl -v http://localhost:8080/
