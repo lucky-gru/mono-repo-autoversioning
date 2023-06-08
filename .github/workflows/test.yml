@@ -30,7 +30,7 @@ jobs:
           KEYCLOAK_ADMIN_PASSWORD: admin
 
         options: >-
-          --entrypoint ["/opt/keycloak/bin/kc.sh", "start-dev"]
+          --entrypoint ["/opt/keycloak/bin/kc.sh"]
         ports:
           - 127.0.0.1:8080:8080
 
