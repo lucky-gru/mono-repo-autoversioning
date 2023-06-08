@@ -28,10 +28,10 @@ jobs:
           KC_DB_URL_HOST: postgres-sso
           KEYCLOAK_ADMIN: admin
           KEYCLOAK_ADMIN_PASSWORD: admin
+        options: >-
+          --entrypoint ["/opt/keycloak/bin/kc.sh start-dev"]
         ports:
           - 127.0.0.1:8080:8080
-        command:
-          - start-dev
 
     steps:
       # Downloads a copy of the code in your repository before running CI tests
