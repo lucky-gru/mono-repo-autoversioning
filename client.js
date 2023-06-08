@@ -3,7 +3,7 @@ const axios = require("axios");
 const { Client } = require("pg");
 
 const pgclient = new Client({
-  host: "postgres-sso",
+  host: "localhost",
   port: 5432,
   user: "postgres",
   password: "example",
@@ -14,10 +14,26 @@ pgclient.connect();
 
 (async () => {
   axios
-    .get("http://keycloak")
+    .get("http://localhost:8080")
     .then(function (response) {
       // handle success
       console.log("8080", response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+})();
+
+(async () => {
+  axios
+    .get("https://localhost:8080")
+    .then(function (response) {
+      // handle success
+      console.log("8080s", response);
     })
     .catch(function (error) {
       // handle error
