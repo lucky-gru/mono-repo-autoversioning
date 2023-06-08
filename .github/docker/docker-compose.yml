@@ -6,7 +6,7 @@ networks:
 services:
   postgres:
     image: postgres:14.5
-    env:
+    environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_DB: eil
@@ -15,7 +15,7 @@ services:
 
   postgres-sso:
     image: postgres:14.5
-    env:
+    environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_DB: keycloak_db
@@ -26,7 +26,7 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:latest
-    env:
+    environment:
       KC_DB: postgres
       KC_DB_USERNAME: postgres
       KC_DB_PASSWORD: example
@@ -40,7 +40,7 @@ services:
 
   cpg-server:
     image: etenlab/cpg-server:latest
-    env:
+    environment:
       DB_HOST: postgres
       DB_PORT: 5432
       DB_USERNAME: postgres

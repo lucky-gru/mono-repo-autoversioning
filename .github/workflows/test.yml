@@ -11,7 +11,7 @@ jobs:
 
       - uses: isbang/compose-action@v1.4.1
         with:
-          compose-file: "./docker/docker-compose.yml"
+          compose-file: "./.github/docker/docker-compose.yml"
           down-flags: "--volumes"
           services: |
             postgres-sso
