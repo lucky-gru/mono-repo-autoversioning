@@ -14,7 +14,7 @@ pgclient.connect();
 
 (async () => {
   axios
-    .get("http://keycloak:8080")
+    .get("http://keycloak")
     .then(function (response) {
       // handle success
       console.log("8080", response);
