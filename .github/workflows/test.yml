@@ -28,9 +28,10 @@ jobs:
           KC_DB_URL_HOST: postgres-sso
           KEYCLOAK_ADMIN: admin
           KEYCLOAK_ADMIN_PASSWORD: admin
-
+        volumes:
+          - init-kc.sh:/opt/keycloak/bin/init-kc.sh
         options: >-
-          --entrypoint /opt/keycloak/bin/kc.sh start-dev
+          --entrypoint /opt/keycloak/bin/init-kc.sh
         ports:
           - 127.0.0.1:8080:8080
 
