@@ -4,9 +4,18 @@ networks:
     name: eil
 
 services:
+  postgres:
+    image: postgres:14.5
+    env:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: eil
+    ports:
+      - 5432:5432
+
   postgres-sso:
     image: postgres:14.5
-    environment:
+    env:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
       POSTGRES_DB: keycloak_db
@@ -17,7 +26,7 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:latest
-    environment:
+    env:
       KC_DB: postgres
       KC_DB_USERNAME: postgres
       KC_DB_PASSWORD: example
@@ -28,7 +37,17 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
       - 8080:8080
-    command:
-      - start-dev
-    depends_on:
-      - postgres-sso
+
+  cpg-server:
+    image: etenlab/cpg-server:latest
+    env:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: postgres
+      DB_PASSWORD: example
+      DB_NAME: eil
+      RUN_MIGRATIONS: false
+      MODE: DEV
+      PORT: 80
+    ports:
+      - 8201:80

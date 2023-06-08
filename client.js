@@ -1,6 +1,7 @@
 const axios = require("axios");
 
 const keycloakUrl = "http://127.0.0.1:8080";
+const cpgUrl = "http://127.0.0.1:8201";
 
 (async () => {
   try {
@@ -11,41 +12,14 @@ const keycloakUrl = "http://127.0.0.1:8080";
   }
 })();
 
-// const axios = require("axios");
-
-// const { Client } = require("pg");
-
-// (async () => {
-//   axios
-//     .get("http://localhost:8080/auth")
-//     .then(function (response) {
-//       // handle success
-//       console.log("8080", response);
-//     })
-//     .catch(function (error) {
-//       // handle error
-//       console.log(error);
-//     })
-//     .finally(function () {
-//       // always executed
-//     });
-// })();
-
-// (async () => {
-//   axios
-//     .get("https://localhost:8080/auth")
-//     .then(function (response) {
-//       // handle success
-//       console.log("8080s", response);
-//     })
-//     .catch(function (error) {
-//       // handle error
-//       console.log(error);
-//     })
-//     .finally(function () {
-//       // always executed
-//     });
-// })();
+(async () => {
+  try {
+    const response = await axios.get(`${cpgUrl}`);
+    console.log("cpg response:", response.data);
+  } catch (error) {
+    console.error("Error fetching cpg data:", error);
+  }
+})();
 
 // const pgclient = new Client({
 //   host: "localhost",

@@ -25,9 +25,6 @@ jobs:
         # the table with data, and then retrieves the data
         run: npm start
 
-      - name: B
-        run: curl -v http://127.0.0.1:8080/
-
         # Environment variables used by the `client.js` script to create
         # a new PostgreSQL table.
 
